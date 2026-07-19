@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands, tasks
 import os
+from flask import Flask
+from threading import Thread
 
 TOKEN = os.getenv("TOKEN")
 CHANNEL_ID = 1528326358709833858
@@ -88,5 +90,15 @@ async def on_ready():
     if not mirage_update.is_running():
         mirage_update.start()
 
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Bot is running!"
+
+def run():
+    app.run(host="0.0.0.0", port=10000)
+
+Thread(target=run).start()
 
 bot.run(TOKEN)
