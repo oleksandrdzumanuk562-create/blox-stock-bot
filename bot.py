@@ -1,7 +1,8 @@
 import discord
 from discord.ext import commands, tasks
+import os
 
-TOKEN = "ВСТАВИМ_ПОТОМ"
+TOKEN = os.getenv("TOKEN")
 CHANNEL_ID = 1528326358709833858
 
 intents = discord.Intents.default()
