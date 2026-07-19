@@ -3,6 +3,8 @@ from discord.ext import commands, tasks
 import os
 from flask import Flask
 from threading import Thread
+import requests
+from bs4 import BeautifulSoup
 
 TOKEN = os.getenv("TOKEN")
 CHANNEL_ID = 1528326358709833858
